@@ -121,24 +121,10 @@ for result in response.results:
 Scores would enable:
 - Setting relevance thresholds to filter low-quality results
 - Debugging retrieval quality
-- Hybrid search (combining with keyword scores)
 
 ---
 
-### 2. Hybrid Search Support
-
-Support combining semantic + keyword search:
-
-```python
-response = gradient_client.retrieve.documents(
-    knowledge_base_id=kb_id,
-    query="Machu Picchu hiking",
-    search_type="hybrid",  # semantic | keyword | hybrid
-    alpha=0.7,  # Weight: 0=keyword only, 1=semantic only
-)
-```
-
-### 3. Batch Retrieval API
+### 2. Batch Retrieval API
 
 For multi-query RAG (e.g., HyDE, query decomposition):
 
@@ -154,19 +140,19 @@ responses = gradient_client.retrieve.batch_documents(
 )
 ```
 
-### 4. Source Attribution / Citations
+### 3. Source Attribution / Citations
 
-Return document source information with chunks:
+Source URL is available via `metadata.item_name`, but additional attribution would help:
 
 ```python
 for result in response.results:
     print(result.text_content)
-    print(result.source_url)       # Original document URL
-    print(result.document_name)    # Document filename
-    print(result.chunk_index)      # Position in original doc
+    print(result.metadata.get('item_name'))  # ✅ Source URL available
+    print(result.document_name)              # ❌ Not available
+    print(result.chunk_index)                # ❌ Not available
 ```
 
-This enables proper citation in RAG responses.
+Having `document_name` and `chunk_index` would enable better citation formatting in RAG responses.
 
 ---
 
