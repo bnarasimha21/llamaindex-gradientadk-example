@@ -1,4 +1,4 @@
-# LlamaIndex + DigitalOcean Gradient AI Example
+# LlamaIndex + Gradient ADK Example
 
 RAG examples using:
 - [llama-index-llms-digitalocean-gradientai](https://pypi.org/project/llama-index-llms-digitalocean-gradientai/) - LlamaIndex LLM integration
