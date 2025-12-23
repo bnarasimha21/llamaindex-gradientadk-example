@@ -1,0 +1,18 @@
+# DigitalOcean Gradient ADK
+gradient-adk>=0.1.0
+
+# DigitalOcean Gradient SDK (for Knowledge Base operations)
+gradient>=0.1.0
+
+# LlamaIndex DigitalOcean GradientAI Integration
+llama-index-llms-digitalocean-gradientai>=0.1.10
+
+# LlamaIndex Core
+llama-index-core>=0.10.0
+
+# For local embeddings (optional, for local RAG)
+llama-index-embeddings-fastembed>=0.1.0
+fastembed>=0.1.0
+
+# For loading environment variables
+python-dotenv>=1.0.0
